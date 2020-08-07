@@ -1,80 +1,75 @@
 :root {
-    /*Variaveis do CSS*/
     --color-background: #F0F0F7;
     --color-primary-lighter: #9871F5;
     --color-primary-light: #916BEA;
     --color-primary: #8257E5;
     --color-primary-dark: #774DD6;
-    --color-primary-darker: #6842c2;
+    --color-primary-darker: #6842C2;
     --color-secondary: #04D361;
     --color-secondary-dark: #04BF58;
-    --color-title-in-primary: #FFFFFF;
+    --color-title-in-primary: #FFF;
     --color-text-in-primary: #D4C2FF;
     --color-text-title: #32264D;
     --color-text-complement: #9C98A6;
     --color-text-base: #6A6180;
     --color-line-in-white: #E6E6F0;
     --color-input-background: #F8F8FC;
-    --color-button-text: #FFFFFF;
-    --color-box-base: #FFFFFF;
+    --color-button-text: #FFF;
+    --color-box-base: #FFF;
     --color-box-footer: #FAFAFC;
     --color-small-info: #C1BCCC;
 
-    /*Tamanho da fonte padrao: 16px - 100% - 1rem*/
-    font-size: 60%; /* controle das medidas rem */
+    /* Tamanho da fonte padrão:  16px - 100% 1rem */
+    font-size: 60%; /* Controle de variáveis */
 }
 
-*
-{
-    margin: 0;
-    padding: 0;
+/* margin é o espaço externo ao box */
+/* padding é a margem em torno do conteúdo, antes da margem do box */
+/* box-sizing border-box começa o cálculo a partir da borda do box */
+* {
+    margin: 0; /* remove a margem padrão do browser */
+    padding: 0; /* remove o padding padrão do browser */
     box-sizing: border-box;
 }
-html, body
-{ 
-    height: 100vh;
+
+/* divide a altura de todo o conteúdo visível em 100 linhas */
+html,
+body {
+    height: 100vh; 
 }
 
-body
-{
-    background-color: var(--color-background);
+/* background uso da variável --color para definir a cor de fundo da tela */
+/* display flex deixa o conteúdo flexível, permitindo que um objeto seja alinhado ao lado do outro */
+/* align-items alinha o conteúdo do box na vertical */
+/* justify-content alinha o conteúdo do box na horizontal */
+body {
+    background: var(--color-background);
     display: flex;
     align-items: center;
     justify-content: center;
-    
 }
 
+/* as definições de fonte serão aplicadas em todos os elementos abaixo*/
+/* 500 é o peso da fonte, ou seja, a intensidade que ela será exibida */
+/* 1.6rem é o valor relativo a ser aplicado no tamanho da fonte definido no root, ou seja, terá um aumento de 60% de 60% ou 36% de 100% */
+/* Poppins é a família de fontes definida */
 body,
 input,
 button,
-textarea
-{
-    font: 500 1.6rem Poppings;
-    color: var(--color-text-base);
+textarea {
+    font: 500 1.6rem Poppins;
 }
 
-#container
-{
+/* width divide a largura do container em  100 colunas, mas só 90 colunas serão utilizadas */
+#container {
     width: 90vw;
-    max-width: 700px;
+    max-width: 699px;
 }
 
-@media(min-width: 700px)
-{
-    :root
-    {
-        font-size: 62.5%; /*todo 1rem vai ser relativo a 10px*/
+@media (min-width: 700px) {
+    :root {
+        font-size: 62,5%; /* tamanho da fonte equivale a 10px */
     }
 }
-
-/* #container
-{
-    border: 1px solid red;
-    padding: 10px 40px 100px;
-    margin: 40px 10px;
-    width: 90vw;
-    max-width: 700px;
-    height: 300px;
-} */
 
 

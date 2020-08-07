@@ -1,162 +1,141 @@
+/* Classe da página principal */
 
-
-#page-landing
-{
+/* Define a cor de fundo do id */
+#page-landing {
     background: var(--color-primary);
 }
 
-#page-landing #container
-{
+/* define a cor do texto do id */
+#page-landing #container {
     color: var(--color-text-in-primary);
 }
 
-.logo-container img
-{
+/* define o tamanho relativo da imagem */
+.logo-container img {
     height: 10rem;
 }
 
-.logo-container
-{
+/* alinha o texto e define a margem inferior */
+.logo-container {
     text-align: center;
     margin-bottom: 3.2rem;
 }
-.logo-container h2
-{
+
+/* define a estrutura da fonte */
+.logo-container h2 {
     font-weight: 500;
     font-size: 3.6rem;
     line-height: 4.6rem;
     margin-top: 0.8rem;
 }
 
-.hero-image
-{
-    width: 100%; /*Esses 100% sao referentes a class pai na main css que o container e la o 
-                   width esta configurado com 90vw (View Port)*/
-    
+/* define a largura da classe em relação ao container */
+.hero-image {
+    width: 100%;
 }
 
-.buttons-container
-{
+/* alinha os botões de input ao centro e cria um espaço na parte superior e inferior */
+.buttons-container {
     display: flex;
     justify-content: center;
     margin: 3.2rem 0;
 }
 
-.buttons-container a
-{
-    width: 30rem;
-    height: 10.4rem;
-    border-radius: 0.8rem;
-    
-
-    margin-right: 1.6rem;
-    font: 700 2.4rem Archivo;
-
-    display: flex; /*usamos flex para termos acesso a outros atributos  como por exemplo alinhar elementos como abaixo*/
-    align-items: center;
-    justify-content: center;
-
-    text-decoration: none; /*Tira o sublinhado do link por exemplo*/
-    color: var(--color-button-text);
-
-    transition: background 0.2s; /*Essa e a velocidade de o efeito de mudar a corpo no botao vai ter*/
+.buttons-container a {
+    width: 30rem; /* largura dos botões */
+    height: 10.4rem; /* altura dos botões */
+    border-radius: 0.8rem; /* arredondamento dos cantos */
+    margin-right: 1.6rem; /* espaçamento entre os botões */
+    font: 700 2.4rem Archivo; /* definição da fonte */
+    display: flex; /* deixa os botões lado a lado */
+    align-items: center; /* alinha os botões ao centro do elemento verticalmente */
+    justify-content: center; /* alinha os elementos ao centro horizontalmente */
+    text-decoration: none; /* elimina a linha azul sublinhada do hiperlynk */
+    color: var(--color-button-text); /* define a cor do texto do botão */
+    transition: background 0.2s;
 }
 
-.buttons-container a img
-{
+.buttons-container a img {
     width: 4rem;
-    margin-right: 4.2rem;
+    margin-right: 2.4rem;
 }
 
-.buttons-container a.study
-{
-    background-color: var(--color-primary-lighter);
+.buttons-container a.study {
+    background: var(--color-primary-lighter); /* define a cor do botão estudar */
+
 }
 
-.buttons-container a.study:hover /*hover sao efeitos que o elemento pode ter*/
-{
+.buttons-container a.study:hover {
     background: var(--color-primary-light);
 }
 
-.buttons-container a.give-classes
-{
-    background-color: var(--color-secondary);
-    margin-right: 0; /*isso ta tirando uma pequena margem que tinha do lado direito do botao dar aula e isso poderia 
-                       fazer diferenca no alinhamento geral da pagina*/
+.buttons-container a.give-classes {
+    background: var(--color-secondary); /* define a cor do botão dar aulas */
+    margin-right: 0; /* espaçamento do botão dar aulas */
+
 }
 
-.buttons-container a.give-classes:hover /*hover sao efeitos que o elemento pode ter*/
-{
+.buttons-container a.give-classes:hover {
     background: var(--color-secondary-dark);
 }
 
-.total-connections
-{
+.total-connections {
     font-size: 1.8rem;
-
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.total-connections img
-{
+.total-connections img {
     margin-left: 0.8rem;
 }
 
-@media(max-width: 699px)
-{
-    :root
-    {
-         font-size: 40%; /*modificar as medidas rem */
+/* modifica o tamanho das fontes em telas menores do que 700px */
+@media (max-width: 699px) {
+    :root {
+        font-size: 40%;  
     }
 }
 
-/*O media so vai ser ativado quando tiver uma tela de no minimo de 1100px a partir dai
-  todo o layout da pagina vai ser alterado com as definicoes que eu colocar no media*/
-@media(min-width: 1100px)
-{
-    #page-landing #container
-    {
+/* altera o layout das telas maiores que 1100px  */
+@media (min-width: 1100px) {
+    #page-landing #container {
         max-width: 1100px;
-        display: grid;
-        grid-template-columns: 2fr 1fr 2fr;
-        grid-template-rows: 350px 1fr;
+        display: grid; /* altera o display para grid */
+        grid-template-columns: 2fr 1fr 2fr; /* insere três colunas com larguras diferentes */
+        grid-template-rows: 350px 1fr; /* insere duas linhas com alturas diferentes */
         grid-template-areas: 
         "proffy image image"
-        "button button texting";
-        column-gap: 87px;
-        row-gap: 86px;
-
+        "button button texting"; /* define uma string para cada coluna do grid */
+        column-gap: 87px; /* cria um espaço entre as colunas do grid */
+        row-gap: 86px; /* cria um espaço entre as linhas dos grids */
     }
-    .logo-container
-    {
+    /* ocupa o grid do canto superior direito da tela */
+    .logo-container {
         grid-area: proffy;
-        text-align: initial;
-        align-self: center;
+        text-align: initial; /* alinha os elementos à esquerda do grid */
+        align-self: center; /* alinha a logo no centro do grid, forçando a imagem à largura máxima do mesmo */
         margin: 0;
     }
 
-    .logo-container img 
-    {
-        height: 127px;
+    .logo-container img {
+        height: 127px /* aumenta a altura da imagem ao máximo permitido dentro do grid */
     }
 
-    .hero-image
-    {
-        grid-area: image;
+    .hero-image {
+        grid-area: image; /* coloca a imagem principal no grid central no topo da página */
         height: 350px;
     }
-    .buttons-container
-    {
-        grid-area: button;
-        justify-content: flex-start;
+
+    .buttons-container {
+        grid-area: button; /* coloca os botões no canto inferior esquerdo */
+        justify-content: flex-start; /* alinha os botões à esquerda do flex */
         margin: 0;
     }
-    .total-connections
-    {
-        grid-area: texting;
-        justify-self: end;
-        font-size: 12px;
+    
+    .total-connections {
+        grid-area: texting; /* coloca o texto no canto inferior direito */
+        justify-self: end; /* alinha o texto à direita do grid */
+        font-size: 1.2rem; /* ajusta a fonte para não quebrar em duas linhas */
     }
 }
