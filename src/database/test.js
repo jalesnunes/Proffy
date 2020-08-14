@@ -1,7 +1,7 @@
-const db = require('./db')
+const Database = require('./db')
 const createProffy = require('./createProffy')
 
-db.then(() =>{
+Database.then(async (db) =>{
     //inserir dados
 
     proffyValue = {
@@ -12,12 +12,12 @@ db.then(() =>{
     }
 
     classValue = {
-        subject: 'Quimica',
+        subject: 1,
         cost: '20',
         //o proffy vira pelo banco de dados
     }
 
-    classScheduleValue = [
+    classScheduleValues = [
         //class_id vira pelo banco de dados apos cadastramos a class
         {
         weekday: 1,
@@ -31,6 +31,35 @@ db.then(() =>{
             }
     ]
 
-    //createProffy(db, {proffyValue, classValue, classScheduleValue})
+    //await createProffy(db, {proffyValue, classValue, classScheduleValues})
+
     //consultar os dados inseridos
+
+    //todos os proffys
+    const selectedProffys = await db.all("SELECT * FROM proffys")
+    //console.log(selectedProffys)
+
+    //consultar as classes de um determinado professor
+    // e trazer junto os dados do professor
+    const selectClassesAndProffys = await db.all(`
+        SELECT classes.*, proffys.*
+        FROM proffys
+        JOIN classes ON (classes.proffy_id = proffys.id)
+        WHERE classes.proffy_id = 1;
+    `)
+    //console.log(selectClassesAndProffys)
+
+    // o horario que a pessoa trabalha, por excem,plo e das 8 - 18
+    // o horario do time_from (8) precisa ser menor ou igual ao horario solicitado
+    // o time_to precisa ser acima
+    const selectClassesSchedules = await db.all(`
+        SELECT class_schedule.*
+        FROM class_schedule
+        WHERE class_schedule.class_id = 1
+        AND class_schedule.weekday = "0"
+        AND class_schedule.time_from <= "420" 
+        AND class_schedule.time_to > "520"
+    `)
+
+    //console.log(selectClassesSchedules)
 })
